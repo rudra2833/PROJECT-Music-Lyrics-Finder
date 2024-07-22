@@ -1,0 +1,32 @@
+<%- include("partials/header.ejs") %>
+
+    <!-- main body here -->
+    <h1>Search The Music</h1>
+
+    <form action="/search" method="post" class="search_form">
+
+        <input type="text" placeholder="Enter the Song name:" name="songname" class="items">
+
+        <input type="text" placeholder="Enter the Artist name:" name="artistname" class="items">
+
+        <button type="submit" class="items">⌕</button>
+
+    </form>
+
+    <div class="output_box">
+        <% if(typeof(content)=="string"){ %>
+        <p>
+            <%= content %>
+        </p>
+        <% }else{ %>
+        <p>
+            <% for(var i=0; i<content.length;i++){ %>
+                <br><%= (content[i]) %>
+            <% } %>
+        </p>    
+        <% } %>
+    </div>
+
+
+
+    <%- include("partials/footer.ejs") %>
